@@ -95,9 +95,10 @@
     NSString *format;
     
     if ([self isCameraDeviceAvailable])
-        format = CTAssetsPickerLocalizedString(@"You can take photos and videos using the camera, or sync photos and videos onto your %@\nusing iTunes.", nil);
+//        format = CTAssetsPickerLocalizedString(@"You can take photos and videos using the camera, or sync photos and videos onto your %@\nusing iTunes.", nil);
+        format = @"You can take photos and videos using the camera, or sync photos and videos onto your %@\nusing iTunes.";
     else
-        format = CTAssetsPickerLocalizedString(@"You can sync photos and videos onto your %@ using iTunes.", nil);
+        format = @"You can sync photos and videos onto your %@ using iTunes.";
     
     return [NSString stringWithFormat:format, self.deviceModel];
 }

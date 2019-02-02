@@ -154,7 +154,7 @@
     NSNumberFormatter *nf = [NSNumberFormatter new];
 
     NSInteger count = self.assets.count;
-    self.title      = [NSString stringWithFormat:CTAssetsPickerLocalizedString(@"%@ of %@", nil),
+    self.title      = [NSString stringWithFormat:@"%@ of %@",
                        [nf ctassetsPickerStringFromAssetsCount:index],
                        [nf ctassetsPickerStringFromAssetsCount:count]];
 }

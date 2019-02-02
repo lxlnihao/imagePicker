@@ -28,7 +28,7 @@
 
 
 #define CTAssetsPickerLocalizedString(key, comment) \
-NSLocalizedStringFromTableInBundle((key), @"CTAssetsPicker", [NSBundle ctassetsPickerBundle], (comment))
+ NSLocalizedStringFromTableInBundle((key), @"CTAssetsPicker", [NSBundle ctassetsPickerBundle], (comment))
 
 @interface NSBundle (CTAssetsPickerController)
 

@@ -352,7 +352,11 @@ NSString * const CTAssetsPickerDidDeselectAssetNotification = @"CTAssetsPickerDi
     if (self.showsCancelButton)
     {
         viewController.navigationItem.leftBarButtonItem =
-        [[UIBarButtonItem alloc] initWithTitle:CTAssetsPickerLocalizedString(@"Cancel", nil)
+//        [[UIBarButtonItem alloc] initWithTitle:CTAssetsPickerLocalizedString(@"Cancel", nil)
+//                                         style:UIBarButtonItemStylePlain
+//                                        target:self
+//                                        action:@selector(dismiss:)];
+        [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                          style:UIBarButtonItemStylePlain
                                         target:self
                                         action:@selector(dismiss:)];
@@ -543,21 +547,25 @@ NSString * const CTAssetsPickerDidDeselectAssetNotification = @"CTAssetsPickerDi
     NSString *format;
     
     if (photoSelected && videoSelected)
-        format = CTAssetsPickerLocalizedString(@"%@ Items Selected", nil);
+//        format = @"Items Selected";
+     format = [NSString stringWithFormat:@"%ld Items Selected",self.selectedAssets.count];
+    else if (photoSelected){
+        format = [NSString stringWithFormat:@"%ld Photos Selected",self.selectedAssets.count];
+//        format = (self.selectedAssets.count > 1) ?
+//        CTAssetsPickerLocalizedString(@"%@ Photos Selected", nil) :
+//        CTAssetsPickerLocalizedString(@"%@ Photo Selected", nil);
+    NSLog(@"photoSelected11:%@",CTAssetsPickerLocalizedString(@"%@ Photos Selected", nil));
     
-    else if (photoSelected)
-        format = (self.selectedAssets.count > 1) ?
-        CTAssetsPickerLocalizedString(@"%@ Photos Selected", nil) :
-        CTAssetsPickerLocalizedString(@"%@ Photo Selected", nil);
-    
-    else if (videoSelected)
-        format = (self.selectedAssets.count > 1) ?
-        CTAssetsPickerLocalizedString(@"%@ Videos Selected", nil) :
-        CTAssetsPickerLocalizedString(@"%@ Video Selected", nil);
+    }else if (videoSelected)
+        format = [NSString stringWithFormat:@"%ld Videos Selected",self.selectedAssets.count];
+//        format = (self.selectedAssets.count > 1) ?
+//        CTAssetsPickerLocalizedString(@"%@ Videos Selected", nil) :
+//        CTAssetsPickerLocalizedString(@"%@ Video Selected", nil);
     
     NSNumberFormatter *nf = [NSNumberFormatter new];
     
-    return [NSString stringWithFormat:format, [nf ctassetsPickerStringFromAssetsCount:self.selectedAssets.count]];
+//    return [NSString stringWithFormat:format, [nf ctassetsPickerStringFromAssetsCount:self.selectedAssets.count]];
+    return [NSString stringWithFormat:@"%@ %@",format, [nf ctassetsPickerStringFromAssetsCount:self.selectedAssets.count]];
 }
 
 

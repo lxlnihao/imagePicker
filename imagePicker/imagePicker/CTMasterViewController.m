@@ -233,10 +233,10 @@
         if (row == 2)
             vc = (UIViewController *)[CTSelectedAssetsViewController new];
         
-        if (row == 3)
+        if (row == 3)//先展示collectionview
             vc = (UIViewController *)[CTDefaultAlbumViewController new];
         
-        if (row == 4)
+        if (row == 4)//显示选中的顺序
             vc = (UIViewController *)[CTSelectionOrderViewController new];
         
         if (row == 5)

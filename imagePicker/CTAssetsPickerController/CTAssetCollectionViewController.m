@@ -149,8 +149,9 @@
     if (self.doneButton == nil)
     {
         NSString *title = (self.picker.doneButtonTitle) ?
-        self.picker.doneButtonTitle : CTAssetsPickerLocalizedString(@"Done", nil);
-        
+//        self.picker.doneButtonTitle : CTAssetsPickerLocalizedString(@"Done", nil);
+        self.picker.doneButtonTitle : @"";
+        //可以设置为隐藏
         self.doneButton =
         [[UIBarButtonItem alloc] initWithTitle:title
                                          style:UIBarButtonItemStyleDone
@@ -160,8 +161,13 @@
     
     if (self.cancelButton == nil)
     {
+//        self.cancelButton =
+//        [[UIBarButtonItem alloc] initWithTitle:CTAssetsPickerLocalizedString(@"Cancel", nil)
+//                                         style:UIBarButtonItemStylePlain
+//                                        target:self.picker
+//                                        action:@selector(dismiss:)];
         self.cancelButton =
-        [[UIBarButtonItem alloc] initWithTitle:CTAssetsPickerLocalizedString(@"Cancel", nil)
+        [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
                                          style:UIBarButtonItemStylePlain
                                         target:self.picker
                                         action:@selector(dismiss:)];
@@ -356,7 +362,7 @@
 {
     UIViewController *vc = self.splitViewController.viewControllers.lastObject;
     
-    if ([vc isMemberOfClass:[UINavigationController class]])
+    if ([vc isKindOfClass:[UINavigationController class]])
         return (self == ((UINavigationController *)vc).topViewController);
     else
         return NO;
@@ -365,7 +371,7 @@
 - (void)resetTitle
 {
     if (!self.picker.title)
-        self.title = CTAssetsPickerLocalizedString(@"Photos", nil);
+        self.title = @"Photos";
     else
         self.title = self.picker.title;
 }

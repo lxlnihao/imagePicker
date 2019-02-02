@@ -180,7 +180,7 @@ NSString * const CTAssetsGridViewFooterIdentifier = @"CTAssetsGridViewFooterIden
     if (self.navigationItem.rightBarButtonItem == nil)
     {
         NSString *title = (self.picker.doneButtonTitle) ?
-        self.picker.doneButtonTitle : CTAssetsPickerLocalizedString(@"Done", nil);
+        self.picker.doneButtonTitle : @"Done";
         
         self.navigationItem.rightBarButtonItem =
         [[UIBarButtonItem alloc] initWithTitle:title
