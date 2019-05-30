@@ -231,6 +231,7 @@
             vc = (UIViewController *)[CTMaxSelectionViewController new];
         
         if (row == 2)
+            //保持选中的状态
             vc = (UIViewController *)[CTSelectedAssetsViewController new];
         
         if (row == 3)//先展示collectionview
@@ -246,15 +247,18 @@
     if (section == 1)
     {
         if (row == 0)
+            //默认显示从上到下
             vc = (UIViewController *)[CTSortedAssetsViewController new];
     }
     
     if (section == 2)
     {
         if (row == 0)
+            //只显示图片
             vc = (UIViewController *)[CTPhotosViewController new];
         
         if (row == 1)
+            //最近一周的
             vc = (UIViewController *)[CTLastWeekViewController new];
         
         if (row == 2)
@@ -267,6 +271,7 @@
     if (section == 3)
     {
         if (row == 0)
+            //默认选中
             vc = (UIViewController *)[CTProgrammaticViewController new];
     }
     

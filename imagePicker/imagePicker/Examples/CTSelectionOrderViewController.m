@@ -28,7 +28,7 @@
 
 // import headers that need to be customised
 #import "CTAssetsGridSelectedView.h"
-
+#import "CTAssetSelectionLabel.h"
 
 
 @implementation CTSelectionOrderViewController
@@ -39,6 +39,17 @@
     
     // set apperance
     [CTAssetsGridSelectedView appearance].borderWidth = 3.0f;
+    
+    // selection label
+    CTAssetSelectionLabel *assetSelectionLabel = [CTAssetSelectionLabel appearance];
+    assetSelectionLabel.borderWidth = 1.0;
+    assetSelectionLabel.borderColor = [UIColor redColor];
+    [assetSelectionLabel setSize:CGSizeMake(24.0, 24.0)];
+    [assetSelectionLabel setCornerRadius:12.0];
+    [assetSelectionLabel setMargin:4.0 forVerticalEdge:NSLayoutAttributeRight horizontalEdge:NSLayoutAttributeTop];
+    [assetSelectionLabel setTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12],
+                                             NSForegroundColorAttributeName : [UIColor greenColor],
+                                             NSBackgroundColorAttributeName : [UIColor orangeColor]}];
     
 }
 
